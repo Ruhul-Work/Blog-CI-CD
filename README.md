@@ -62,11 +62,24 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: your_db_name
+      MYSQL_DATABASE: your DB name
     ports:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - laravel
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"  # Access at http://localhost:8080
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - mysql
     networks:
       - laravel
 
@@ -75,6 +88,7 @@ volumes:
 
 networks:
   laravel:
+
 ```
 
 ### .env
@@ -182,6 +196,7 @@ GitHub Actions will:
 You now have:
 - 🚣 Laravel app containerized
 - ♻️ Automatic image builds on push
+- 📦 Connect phpmyadmin on Docker
 - 📦 Image published to Docker Hub (`yourdockerhub/laravel-app:latest`)
 
 Ready for deployment or further automation!
