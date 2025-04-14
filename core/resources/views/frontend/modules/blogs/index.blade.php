@@ -57,7 +57,7 @@
         <section class="container py-5">
             <div class="row">
                 <div class="section-title  mb-4 pb-1 w-50">
-                    <h2 class="m-0">What's <span>Your Article Today?</span></h2>
+                    <h2 class="m-0">What's <span style="color: rgb(231, 146, 43)">Your Article Today?</span></h2>
                 </div>
                 <div class="col-md-12">
                     <div class="custom-card card">
